@@ -1,22 +1,34 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue';
+import { RouterView } from 'vue-router'
+onMounted(() => {
+  fetch("https://2.135.117.252:4444/WeatherForecast").then(async (res) => {
+    console.log(res);
+    if (res.ok) {
+      const data = await res.json();
+      alert(data.map(x => x.summary))
+    }
+  });
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="card">
+    <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
+      <template #start>
+        <div class="flex items-center gap-2">
+          <img src="./assets/logo.svg" alt="PrimeVue logo" style="width: 32px" />
+        </div>
+      </template>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+      <template #end>
+        <div class="flex items-center gap-2">
+          <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
+            style="width: 32px; height: 32px" />
+        </div>
+      </template>
+    </Toolbar>
+  </div>
   <RouterView />
 </template>
 
