@@ -2,13 +2,6 @@
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
 onMounted(() => {
-  fetch("https://2.135.117.252:4444/WeatherForecast").then(async (res) => {
-    console.log(res);
-    if (res.ok) {
-      const data = await res.json();
-      alert(data.map(x => x.summary))
-    }
-  });
 })
 </script>
 
