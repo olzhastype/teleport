@@ -1,27 +1,8 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
-onMounted(() => {
-})
 </script>
 
 <template>
-  <div class="card">
-    <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
-      <template #start>
-        <div class="flex items-center gap-2">
-          <img src="./assets/logo.svg" alt="PrimeVue logo" style="width: 32px" />
-        </div>
-      </template>
-
-      <template #end>
-        <div class="flex items-center gap-2">
-          <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
-            style="width: 32px; height: 32px" />
-        </div>
-      </template>
-    </Toolbar>
-  </div>
   <RouterView />
 </template>
 

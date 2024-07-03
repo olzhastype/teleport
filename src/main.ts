@@ -5,35 +5,12 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-
-import PrimeVue from 'primevue/config'
-import Button from 'primevue/button'
-
-import Aura from '@primevue/themes/aura'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-
-import 'primeflex/primeflex.css'
-import Toolbar from 'primevue/toolbar'
-import Avatar from 'primevue/avatar'
-import Tag from 'primevue/tag'
+import VueTelegram from 'vue-tg'
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(PrimeVue, {
-  theme: {
-    preset: Aura
-  }
-})
+app.use(VueTelegram)
 
 app.mount('#app')
-
-app.component('Button', Button)
-app.component('DataTable', DataTable)
-app.component('Column', Column)
-app.component('Toolbar', Toolbar)
-app.component('Avatar', Avatar)
-app.component('DataView', DataView)
-app.component('Tag', Tag)
